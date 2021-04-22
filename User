@@ -1,0 +1,57 @@
+package com.example.loginregister;
+
+public class User {
+    private String username;
+    private String etEmail;
+    private String etName;
+    private String etPassword;
+    private int etHeight;
+    private int etAge;
+
+
+    public User(String name, String password, String email, String username, Integer height, Integer age) {
+        this.username=username;
+
+        etName = name;
+        etPassword = password;
+        etEmail =email;
+        etHeight = height;
+        etAge = age;
+    }
+
+    public String getName(){
+
+        return etName;
+    }
+    public void setName(String name){
+        etName = name;
+    }
+    public String getEmail(){
+
+        return etEmail;
+    }
+    public void setEmail(String email){
+        etEmail = email;
+    }
+    public String getPassword(){
+
+        return etPassword;
+    }
+    public void setPassword(String password){
+        etPassword = password;
+    }
+
+    public Integer getAge(){
+        return etAge;
+    }
+    public void setAge(Integer age){
+        etAge = age;
+    }
+    public Integer getHeight(){
+        return etHeight;
+    }
+    public void setHeight(Integer height){
+        etHeight = height;
+    }
+
+}
