@@ -1,0 +1,67 @@
+package com.example.loginregister;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
+
+public class Register extends AppCompatActivity implements View.OnClickListener {
+
+    Button bRegister;
+    EditText etName;
+    EditText etUsername;
+    EditText etEmail;
+    EditText etHeight;
+    EditText etAge;
+    EditText etPassword;
+    private ArrayList<String> mUsers;
+    private Users usersInstance;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        usersInstance = Users.getInstance();
+        setContentView(R.layout.activity_register);
+
+                etName=(EditText)findViewById(R.id.etName);
+                etUsername =(EditText)findViewById(R.id.etUsername);
+                etEmail=(EditText)findViewById(R.id.etEmail);
+                etHeight=(EditText)findViewById(R.id.etHeight);
+                etAge=(EditText)findViewById(R.id.etAge);
+                etPassword=(EditText)findViewById(R.id.etPassword);
+                bRegister=(Button)findViewById(R.id.bRegister);
+
+                bRegister.setOnClickListener(this);
+
+                mUsers = new ArrayList<String>();
+    }
+
+    @Override
+    public void onClick(View v) {
+       switch (v.getId()){
+           case R.id.bRegister:
+
+               String name =etName.getText().toString();
+               String username=etUsername.getText().toString();
+               String password=etPassword.getText().toString();
+               int age =Integer.parseInt(etAge.getText().toString());
+               String email=etEmail.getText().toString();
+               int height=Integer.parseInt(etHeight.getText().toString());
+               User user = new User (name, password, email, username, height, age);
+               ArrayList<User> users = usersInstance.getUserList();
+               users.add(user);
+               usersInstance.setUserList(users);
+               /*//Login
+               for(User candidate : users) {
+                   if (candidate.getEmail() == email);*/
+               }
+
+
+
+              // break;
+       }
+    }
